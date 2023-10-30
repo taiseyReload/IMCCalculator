@@ -32,9 +32,29 @@ namespace IMCCalculator
                 // Obter e mostrar o IMC:
                 lblResultado.Text = resultado.ToString();
 
-                if ()
+                if (resultado <= 18.5 )
                 {
-
+                    lblClassificacao.Text = "Abaixo do Peso.";
+                }
+                else if (resultado >= 18.6 && resultado <= 24.9)
+                {
+                    lblClassificacao.Text = "Peso Ideal(Parabéns)";
+                }
+                else if (resultado >=25.0 && resultado <= 29.9)
+                {
+                    lblClassificacao.Text = "Levemente Acima do Peso.";
+                }
+                else if (resultado >= 30.0 && resultado <= 34.9)
+                {
+                    lblClassificacao.Text = "Obesidade Grau I";
+                }
+                else if (resultado >= 35.0 && resultado <= 39.9)
+                {
+                    lblClassificacao.Text = "Obesidade Grau II (Severa)";
+                }
+                else
+                {
+                    lblClassificacao.Text = "Obesidade III (Mórbida)";
                 }
             }
             catch
