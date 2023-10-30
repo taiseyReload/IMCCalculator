@@ -32,8 +32,10 @@ namespace IMCCalculator
                 // Obter e mostrar o IMC:
                 lblResultado.Text = resultado.ToString();
 
+                // Organizar as classificações: 
                 if (resultado <= 18.5 )
                 {
+                    lblClassificacao.ForeColor = Color.LightGreen;
                     lblClassificacao.Text = "Abaixo do Peso.";
                 }
                 else if (resultado >= 18.6 && resultado <= 24.9)
@@ -42,6 +44,7 @@ namespace IMCCalculator
                 }
                 else if (resultado >=25.0 && resultado <= 29.9)
                 {
+                    lblClassificacao.ForeColor = Color.DarkBlue;
                     lblClassificacao.Text = "Levemente Acima do Peso.";
                 }
                 else if (resultado >= 30.0 && resultado <= 34.9)
@@ -50,11 +53,23 @@ namespace IMCCalculator
                 }
                 else if (resultado >= 35.0 && resultado <= 39.9)
                 {
+                    lblClassificacao.ForeColor = Color.OrangeRed;
                     lblClassificacao.Text = "Obesidade Grau II (Severa)";
                 }
                 else
                 {
+                    lblClassificacao.ForeColor = Color.Red;
                     lblClassificacao.Text = "Obesidade III (Mórbida)";
+                }
+
+                // Impedir que a altura ou peso colocado sejam "0":
+                if (altura <= 0 || peso <= 0)
+                {
+                    txbPeso.Clear();
+                    txbAltura.Clear();
+                    lblClassificacao.Text = "";
+                    lblResultado.Text = "";
+                    MessageBox.Show("Altura ou Peso Inválidos!");
                 }
             }
             catch
