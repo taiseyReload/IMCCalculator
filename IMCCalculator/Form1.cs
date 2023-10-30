@@ -30,7 +30,7 @@ namespace IMCCalculator
                 resultado = peso / (altura * altura);
 
                 // Obter e mostrar o IMC:
-                lblResultado.Text = resultado.ToString();
+                lblResultado.Text = Math.Round(resultado, 2).ToString();
 
                 // Organizar as classificações: 
                 if (resultado <= 18.5 )
